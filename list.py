@@ -65,7 +65,7 @@ class List:
     
         return self._data.pop(index)
 
-    def deleteAll(self, element: char) -> None:
+    def delete_all(self, element: char) -> None:
         '''Операцію видалення елементів зі списку за значенням.
 
         Метод видаляє зі списку усі елементи, які за значенням відповідають шуканому.
