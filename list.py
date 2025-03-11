@@ -1,4 +1,4 @@
-from copy import copy, deepcopy
+from copy import deepcopy
 
 
 type char = str
@@ -84,7 +84,7 @@ class List:
 
         При виклику повинен створити копію поточного списку та повернути її.
         '''
-        return copy(self)
+        return deepcopy(self)
 
     def reverse(self) -> None:
         '''Операція обернення списку.
