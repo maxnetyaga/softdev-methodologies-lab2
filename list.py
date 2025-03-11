@@ -90,7 +90,7 @@ class List:
         '''
         self._data.reverse()
 
-    def findFirst(self, element: char) -> int:
+    def find_first(self, element: char) -> int:
         '''Операція пошуку елемента за значенням з голови списку.
 
         Метод повинен знайти перший елемент у списку, що дорівнює шуканому та повернути його позицію.
@@ -104,7 +104,7 @@ class List:
         except ValueError:
             return -1
 
-    def findLast(self, element: char) -> int:
+    def find_last(self, element: char) -> int:
         '''Операція пошуку елемента за значенням з хвоста списку.
 
         Метод повинен знайти останній елемент у списку, що дорівнює шуканому та повернути його позицію.
