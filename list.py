@@ -3,6 +3,7 @@ from copy import deepcopy
 
 type char = str
 
+
 class List:
     @staticmethod
     def check_char(char):
@@ -14,7 +15,7 @@ class List:
             List.check_char(char)
 
         self.data = list(chars)
-        
+
     def length(self) -> int:
         '''Операція визначення довжини списку.
 
@@ -57,7 +58,7 @@ class List:
 
     def deleteAll(self, element: char) -> None:
         '''Операцію видалення елементів зі списку за значенням.
-        
+
         Метод видаляє зі списку усі елементи, які за значенням відповідають шуканому.
         У випадку передачі елемента, який у списку відсутній, жодні зміни до списку не застосовуються.
         '''
@@ -88,7 +89,7 @@ class List:
         У випадку відсутності шуканого елемента у списку, метод повертає -1
         '''
         List.check_char(element)
-        
+
         try:
             return self.data.index(element)
         except ValueError:
@@ -102,7 +103,7 @@ class List:
         У випадку відсутності шуканого елемента у списку, метод повертає -1.
         '''
         List.check_char(element)
-        
+
         try:
             return len(element) - 1 - self.data.index(element[::-1])
         except ValueError:
