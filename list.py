@@ -14,7 +14,7 @@ class List:
         for char in chars:
             List.check_char(char)
 
-        self.data = list(chars)
+        self._data = list(chars)
 
     def length(self) -> int:
         '''Операція визначення довжини списку.
@@ -22,7 +22,7 @@ class List:
         Якщо список непорожній, то ця операція повинна повертати кількість елементів у списку.
         Якщо список порожній, то ця операція повинна повертати 0.
         '''
-        return len(self.data)
+        return len(self._data)
 
     def get(self, index: int) -> char:
         '''Операція отримання елементу списку на довільній позиції.
@@ -33,13 +33,13 @@ class List:
         if index < 0:
             raise IndexError()
 
-        return self.data[index]
+        return self._data[index]
 
     def append(self, element: char) -> None:
         '''Операцію додавання елементу в кінець списку.'''
         List.check_char(element)
 
-        self.data.append(element)
+        self._data.append(element)
 
     def extend(self, elements: "List") -> None:
         '''Операцію розширення списку.
@@ -47,7 +47,7 @@ class List:
         Метод приймає інший список та додає до поточного списку усі елементи останнього.
         При цьому подальші зміни в другий список не повинні впливати на перший.
         '''
-        self.data.extend(elements.data)
+        self._data.extend(elements._data)
 
     def delete(self, index: int) -> char:
         '''Операцію видалення елементу зі списку на вказаній позиції.
@@ -60,7 +60,7 @@ class List:
         if index < 0:
             raise IndexError()
     
-        return self.data.pop(index)
+        return self._data.pop(index)
 
     def deleteAll(self, element: char) -> None:
         '''Операцію видалення елементів зі списку за значенням.
@@ -70,7 +70,7 @@ class List:
         '''
         List.check_char(element)
 
-        self.data = [x for x in self.data if x != element]
+        self._data = [x for x in self._data if x != element]
 
     def clone(self) -> "List":
         '''Операція копіювання списку.
@@ -85,7 +85,7 @@ class List:
         Метод повинен змінити порядок елементів у поточному списку задом наперед.
         Елемент, що був останнім стане першим, передостаннім — другим, … а перший — останнім.
         '''
-        self.data.reverse()
+        self._data.reverse()
 
     def findFirst(self, element: char) -> int:
         '''Операція пошуку елемента за значенням з голови списку.
@@ -97,7 +97,7 @@ class List:
         List.check_char(element)
 
         try:
-            return self.data.index(element)
+            return self._data.index(element)
         except ValueError:
             return -1
 
@@ -111,7 +111,7 @@ class List:
         List.check_char(element)
 
         try:
-            return len(element) - 1 - self.data.index(element[::-1])
+            return len(element) - 1 - self._data.index(element[::-1])
         except ValueError:
             return -1
 
@@ -120,4 +120,4 @@ class List:
 
         Метод видаляє усі елементи списку.
         '''
-        self.data.clear()
+        self._data.clear()
