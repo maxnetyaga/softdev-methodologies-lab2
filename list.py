@@ -118,7 +118,7 @@ class List:
         List.check_char(element)
 
         try:
-            return len(element) - 1 - self._data.index(element[::-1])
+            return len(self._data) - 1 - self._data.index(element[::-1])
         except ValueError:
             return -1
 
