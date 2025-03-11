@@ -9,6 +9,9 @@ class TestList(u.TestCase):
         self.list1 = List("H", "e", "l", "l", "o", ",", " ",
                           "w", "o", "r", "l", "d", "!")
 
+    def test_str(self):
+        self.assertEqual("Hello, world!", str(self.list1))
+
     def test_length(self):
         self.assertEqual(self.list1.length(), 13)
 
@@ -62,19 +65,18 @@ class TestList(u.TestCase):
     def test_clone(self):
         list2 = self.list1.clone()
 
-        self.assertNotEqual(id(self.list1), id(list2))
-        self.assertNotEqual(id(self.list1._data), id(list2._data))
-
         self.assertTrue(self.list1 == list2)
 
+        self.assertEqual(self.list1.length(), list2.length())
+        self.assertNotEqual(id(self.list1), id(list2))
+        self.assertFalse(self.list1._get_node(5) is list2._get_node(5))
+
+
     def test_reverse_order(self):
-        list1_copy = self.list1.clone()
         self.list1.reverse()
 
         for i in range(self.list1.length()):
-            self.assertEqual(
-                self.list1.get(i),
-                list1_copy.get(self.list1.length() - 1 - i))
+            self.assertEqual(str(self.list1)[::-1], "Hello, world!")
             
     def test_reverse_id(self):
         list1_initial_id = id(self.list1)
