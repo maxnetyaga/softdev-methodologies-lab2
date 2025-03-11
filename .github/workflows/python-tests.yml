@@ -1,0 +1,35 @@
+name: Python Unit Tests
+
+on:
+    push:
+        branches:
+            - main # or any branch you want to trigger on push
+    pull_request:
+        branches:
+            - main # or any branch you want to trigger on pull request
+
+jobs:
+    test:
+        runs-on: ubuntu-latest # You can change this to windows-latest or macos-latest
+
+        steps:
+            # Step 1: Check out the code from the repository
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            # Step 2: Set up Python (install the correct version)
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: "3.13" # Specify the Python version you want to use
+
+            # Step 3: Install dependencies
+            # - name: Install dependencies
+            #   run: |
+            #     python -m pip install --upgrade pip
+            #     pip install -r requirements.txt  # If you have a requirements file
+
+            # Step 4: Run unit tests using unittest
+            - name: Run unit tests
+              run: |
+                  ./test_list.py
