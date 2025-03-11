@@ -31,7 +31,7 @@ class List:
         останнього елементу списку) метод повинен генерувати виключну ситуацію.
         '''
         if index < 0:
-            raise ValueError()
+            raise IndexError()
 
         return self.data[index]
 
@@ -58,7 +58,7 @@ class List:
         останнього елементу списку) метод повинен генерувати виключну ситуацію
         '''
         if index < 0:
-            raise ValueError()
+            raise IndexError()
     
         return self.data.pop(index)
 
