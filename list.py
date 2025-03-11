@@ -19,6 +19,10 @@ class List:
     def __str__(self) -> str:
         return "".join(self._data)
 
+    def __eq__(self, value: "List") -> bool:
+        return (isinstance(value, List)
+                and self._data == value._data)
+
     def length(self) -> int:
         '''Операція визначення довжини списку.
 
@@ -62,7 +66,7 @@ class List:
         '''
         if index < 0:
             raise IndexError()
-    
+
         return self._data.pop(index)
 
     def delete_all(self, element: char) -> None:
