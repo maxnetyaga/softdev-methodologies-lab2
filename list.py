@@ -9,8 +9,11 @@ class List:
         if type(char) != str or len(char) != 1:
             raise ValueError("Element must be a character")
 
-    def __init__(self) -> None:
-        self.data = []
+    def __init__(self, *chars) -> None:
+        for char in chars:
+            List.check_char(char)
+
+        self.data = list(chars)
         
     def length(self) -> int:
         '''Операція визначення довжини списку.
