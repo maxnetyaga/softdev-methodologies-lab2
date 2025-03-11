@@ -16,6 +16,9 @@ class List:
 
         self._data = list(chars)
 
+    def __str__(self) -> str:
+        return "".join(self._data)
+
     def length(self) -> int:
         '''Операція визначення довжини списку.
 
